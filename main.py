@@ -1,19 +1,56 @@
-# Домашнє завдання:
-# 1. Існують такі послідовності чисел:
-# 0,2,4,6,8,10,12
-# 1,4,7,10,13
-# 1,2,4,8,16,32
-# 1,3,9,27
-# 1,4,9,16,25
-# 1,8,27,64,125
-# Реалізуйте програму, яка виведе наступний член цієї послідовності (або подібної до них) на екран.
-# Послідовність користувач вводить з клавіатури у вигляді рядка.
-# Наприклад, користувач вводить рядок 0,5,10,15,20,25 та відповіддю програми має бути число 30.
+import random
+
+from flask import Flask, request
+import telebot
+import os
+
+app = Flask(__name__)
+TOKEN = os.environ.get('TOKEN')
+bot = telebot.TeleBot(TOKEN)
+
+# 1. вітаємося і пропонуємо юзеру дії: кинути кубики або прочитати про клан інфу....
+# робимо це через меню команд бота
+# команди:  clans_info   roll_dice
+@bot.message_handler(commands=['start'])
+def message_start(message):
+    bot.send_message(message.chat.id, 'Hello, vampire! \nChose an action in menu.')
+
+
+# 2.1. якщо обрав кубики, то запитуємо к-сть наявних кубиків чорних та червоних та чи є додаткові
+@bot.message_handler(commands=['roll_dice'])
+def count_dices(message):
+    bot.send_message(message.chat.id, 'How many black cubes do you have?')
+    bot.register_next_step_handler(message, quantity_main)  #записуємо к-сть основних чорних кубиків
+
+def quantity_main(message):
+    bot.send_message(message.chat.id, 'How many red cubes do you have?')
+    bot.register_next_step_handler(message, quantity_red)  #записуємо к-сть червоних кубиків
+
+def quantity_red(message):
+    bot.send_message(message.chat.id, 'How many additional cubes do you have?')
+    bot.register_next_step_handler(message, quantity_additional)  #записуємо к-сть додаткових чорних кубиків
+
+def quantity_additional(message):
+    # взяти введену інфу про к-сть і перетворити в int. (передбачити можливе введення кількості текстом)
+    main_cubes = ?
+    additional_cubes = ?
+    return sum(main_cubes, additional_cubes)
+
+
+# після введених данних про кількість і їх перетворення в int для зручності читання робимо змінні black та red
+# black - кількість чорних кубиків, red - червоних
+def black_cubes(black):
+    return [random.randint(1, 10) for x in range(black)]
+
+def red_cubes(red):
+    return [random.randint(1, 10) for x in range(red)]
+
+
+# 2.2. якщо хоче інфу про клани, то видаємо кнопки з назвами кланів
+@bot.message_handler(commands=['clans_info']):
+
+.......................
 
 
 
 
-# 2. Число-паліндром з обох сторін (справа ліворуч і ліворуч) читається однаково.
-# Найбільше число-паліндром, одержане множенням двох двозначних чисел: 9009 = 91 × 99.
-# Знайдіть найбільший паліндром, одержаний множенням двох трицифрових чисел.
-# Виведіть значення цього паліндрому і те, vyj;tyyzv яких чисел він є.
