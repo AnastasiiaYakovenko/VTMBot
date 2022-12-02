@@ -60,7 +60,7 @@ def get_message():
 @app.route('/')
 def main():
     bot.remove_webhook()
-    bot.set_webhook(url='https://vtm-ve-bot.herokuapp.com/' + TOKEN)
+    bot.set_webhook(url='unexpected-alysia-mariagodlevska.koyeb.app/' + TOKEN)
     return 'Python Telegram Bot', 200
 
 
