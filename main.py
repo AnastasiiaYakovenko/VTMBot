@@ -5,7 +5,7 @@ import telebot
 import os
 
 app = Flask(__name__)
-TOKEN = os.environ.get('5929783319:AAH2idFuxJeZb4UR7kpiFFsqGo5jIYpK-xY')
+TOKEN = os.environ.get('TOKEN')
 bot = telebot.TeleBot(TOKEN)
 
 # 1. вітаємося і пропонуємо юзеру дії: кинути кубики або прочитати про клан інфу....
