@@ -1,1 +1,1 @@
-web: main.py start
+web: main.py yarn start
