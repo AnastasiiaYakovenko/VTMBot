@@ -1,1 +1,1 @@
-web: yarn start
+web: gunicorn -b :8080 app:main
