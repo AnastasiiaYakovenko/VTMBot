@@ -17,24 +17,24 @@ def message_start(message):
 
 
 # 2.1. якщо обрав кубики, то запитуємо к-сть наявних кубиків чорних та червоних та чи є додаткові
-@bot.message_handler(commands=['roll_dice'])
-def count_dices(message):
-    bot.send_message(message.chat.id, 'How many black cubes do you have?')
-    bot.register_next_step_handler(message, quantity_main)  #записуємо к-сть основних чорних кубиків
+# @bot.message_handler(commands=['roll_dice'])
+# def count_dices(message):
+#     bot.send_message(message.chat.id, 'How many black cubes do you have?')
+#     bot.register_next_step_handler(message, quantity_main)  #записуємо к-сть основних чорних кубиків
 
-def quantity_main(message):
-    bot.send_message(message.chat.id, 'How many red cubes do you have?')
-    bot.register_next_step_handler(message, quantity_red)  #записуємо к-сть червоних кубиків
+# def quantity_main(message):
+#     bot.send_message(message.chat.id, 'How many red cubes do you have?')
+#     bot.register_next_step_handler(message, quantity_red)  #записуємо к-сть червоних кубиків
 
-def quantity_red(message):
-    bot.send_message(message.chat.id, 'How many additional cubes do you have?')
-    bot.register_next_step_handler(message, quantity_additional)  #записуємо к-сть додаткових чорних кубиків
+# def quantity_red(message):
+#     bot.send_message(message.chat.id, 'How many additional cubes do you have?')
+#     bot.register_next_step_handler(message, quantity_additional)  #записуємо к-сть додаткових чорних кубиків
 
-def quantity_additional(message):
-    # взяти введену інфу про к-сть і перетворити в int. (передбачити можливе введення кількості текстом)
-    main_cubes = ?
-    additional_cubes = ?
-    return sum(main_cubes, additional_cubes)
+# def quantity_additional(message):
+#     # взяти введену інфу про к-сть і перетворити в int. (передбачити можливе введення кількості текстом)
+#     main_cubes = ?
+#     additional_cubes = ?
+#     return sum(main_cubes, additional_cubes)
 
 
 # після введених данних про кількість і їх перетворення в int для зручності читання робимо змінні black та red
@@ -47,9 +47,9 @@ def red_cubes(red):
 
 
 # 2.2. якщо хоче інфу про клани, то видаємо кнопки з назвами кланів
-@bot.message_handler(commands=['clans_info']):
-
-.......................
+# @bot.message_handler(commands=['clans_info']):
+#
+# .......................
 
 @app.route('/' + TOKEN, methods=['POST'])
 def get_message():
