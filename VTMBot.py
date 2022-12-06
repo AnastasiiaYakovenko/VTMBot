@@ -64,7 +64,8 @@ def main():
     return 'Python Telegram Bot', 200
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8000)))
+if __name__ == '__VTMBot__':
+    app.run()
 
 
+#host='0.0.0.0', port=int(os.environ.get('PORT', 8000))
