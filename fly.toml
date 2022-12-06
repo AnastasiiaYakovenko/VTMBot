@@ -1,6 +1,6 @@
 # fly.toml file generated for hellofly-python on 2021-01-13T15:21:15Z
 
-app = "VTMBot-python"
+app = "VTMBot"
 
 kill_signal = "SIGINT"
 kill_timeout = 5
