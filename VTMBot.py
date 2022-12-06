@@ -51,7 +51,7 @@ def red_cubes(red):
 #
 # .......................
 
-@app.route('/', methods=['POST'])
+@app.route('/' + TOKEN, methods=['POST'])
 def get_message():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "Python Telegram Bot 02-12-2022", 200
@@ -59,14 +59,15 @@ def get_message():
 #@app.route('/' + TOKEN, methods=['POST'])
 
 
-# @app.route('/')
-# def main():
-#     bot.remove_webhook()
-#     bot.set_webhook(url='unexpected-alysia-mariagodlevska.koyeb.app/' + TOKEN)
-#     return 'Python Telegram Bot', 200
+@app.route('/')
+def main():
+    bot.remove_webhook()
+    bot.set_webhook(url='unexpected-alysia-mariagodlevska.koyeb.app/' + TOKEN)
+    return 'Python Telegram Bot', 200
 
 
-# if __name__ == '__VTMBot__':
-#     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
-#
+if __name__ == '__VTMBot__':
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
 
+
+#web: gunicorn vtmbot:app
