@@ -67,6 +67,6 @@ def get_message():
 
 
 if __name__ == '__VTMBot__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8000)))
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
 
 
